@@ -1,0 +1,46 @@
+yarn run v1.22.19
+$ /home/simeon/dev/anchor/serialisation-test/node_modules/.bin/ts-mocha -p ./tsconfig.json -t 1000000 'tests/**/*.ts'
+
+
+  serialisation-test
+[
+   82, 101,  97,  99, 116, 105, 101, 86,  97,
+   99,  97, 116, 117, 114, 101,  95,  0,   0,
+    0,   0,   0,   0,   0,   0,   0,  1, 255,
+  255, 255, 255, 255, 255
+] 32
+    1) Is initialized!
+
+
+  0 passing (39ms)
+  1 failing
+
+  1) serialisation-test
+       Is initialized!:
+     RangeError: The value of "offset" is out of range. It must be >= 0 and <= 996. Received -4
+      at new NodeError (node:internal/errors:387:5)
+      at boundsError (node:internal/buffer:86:9)
+      at checkBounds (node:internal/buffer:55:5)
+      at checkInt (node:internal/buffer:74:3)
+      at writeU_Int32LE (node:internal/buffer:692:3)
+      at Buffer.writeUIntLE (node:internal/buffer:648:12)
+      at UInt.encode (node_modules/buffer-layout/lib/Layout.js:578:7)
+      at Structure.encode (node_modules/buffer-layout/lib/Layout.js:1263:26)
+      at Structure.encode (node_modules/buffer-layout/lib/Layout.js:1263:26)
+      at BorshInstructionCoder._encode (node_modules/@project-serum/anchor/src/coder/borsh/instruction.ts:92:24)
+      at BorshInstructionCoder.encode (node_modules/@project-serum/anchor/src/coder/borsh/instruction.ts:75:17)
+      at /home/simeon/dev/anchor/serialisation-test/node_modules/@project-serum/anchor/src/program/namespace/index.ts:64:43
+      at ix (node_modules/@project-serum/anchor/src/program/namespace/instruction.ts:60:15)
+      at txFn (node_modules/@project-serum/anchor/src/program/namespace/transaction.ts:24:14)
+      at Object.rpc [as maakReactie] (node_modules/@project-serum/anchor/src/program/namespace/rpc.ts:21:18)
+      at /home/simeon/dev/anchor/serialisation-test/tests/serialisation-test.ts:53:34
+      at Generator.next (<anonymous>)
+      at /home/simeon/dev/anchor/serialisation-test/tests/serialisation-test.ts:31:71
+      at new Promise (<anonymous>)
+      at __awaiter (tests/serialisation-test.ts:27:12)
+      at Context.<anonymous> (tests/serialisation-test.ts:40:36)
+      at processImmediate (node:internal/timers:471:21)
+
+
+
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
